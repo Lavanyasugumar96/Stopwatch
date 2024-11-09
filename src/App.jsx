@@ -15,33 +15,41 @@ function App() {
   const startTimer = () =>{
     if(intervalTracker === null){
       const intervalId = setInterval(()=>{
-        setTime(t=>t+1);
+        setTime((t)=>t+1);
       },1000 );
       setIntervalTracker(intervalId);
+  
     }
   };
 
+  const stopTimer =()=>{
+    if(intervalTracker !== null){
+      clearInterval(intervalTracker);
+      
+      setIntervalTracker(null);
+  }
+  };
   const resetTimer =() =>{
     if(intervalTracker !== null){
       clearInterval(intervalTracker);
       
-      setIntervalTracker(-1);
+      setIntervalTracker(null);
     }
     setTime(0);
-  }
+  };
   return (
     <>
     <h1> StopWatch</h1>
     <p>Time : {formatTime(time)}</p>
-    < button onClick = {startTimer}>Start</button>
+    
+    {intervalTracker === null ? ( < button onClick = {startTimer}>Start</button>):(
+    <button onClick = {stopTimer}>Stop</button>  
+    )}
     <button onClick = {resetTimer}>Reset</button>   
-     <button onClick = {()=> {
-      clearInterval(intervalTracker);
-      setIntervalTracker(-1);
-    }}>Stop</button>   
-         </>
+   
+     </>
        
-  )
+  );
 }
 
 export default App;

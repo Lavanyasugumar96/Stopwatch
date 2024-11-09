@@ -2,7 +2,7 @@ import {useState} from "react";
 
 
 function App() {
-  const [time, setTime] = useState(0);
+  const [Time, setTime] = useState(0);
   const [intervalTracker, setIntervalTracker] = useState(null);
 
 
@@ -16,7 +16,7 @@ function App() {
     if(intervalTracker === null){
       const intervalId = setInterval(()=>{
         setTime((t)=>t+1);
-      },1000 );
+      },4000 );
       setIntervalTracker(intervalId);
   
     }
@@ -40,7 +40,7 @@ function App() {
   return (
     <>
     <h1> Stopwatch</h1>
-    <p>Time : {formatTime(time)}</p>
+    <p>Time: {formatTime(Time)}</p>
     
     {intervalTracker === null ? ( < button onClick = {startTimer}>Start</button>):(
     <button onClick = {stopTimer}>Stop</button>  

@@ -9,14 +9,14 @@ function App() {
   const formatTime = (seconds) =>{
     const minutes =Math.floor(seconds/60);
     const remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+    return `${minutes}:${remainingSeconds < 10 ? "0":""}${remainingSeconds}`;
   };
 
   const startTimer = () =>{
     if(intervalTracker === null){
       const intervalId = setInterval(()=>{
         setTime((t)=>t+1);
-      },4000 );
+      },1000 );
       setIntervalTracker(intervalId);
   
     }

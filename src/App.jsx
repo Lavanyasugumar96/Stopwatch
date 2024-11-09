@@ -39,7 +39,7 @@ function App() {
   };
   return (
     <>
-    <h1> StopWatch</h1>
+    <h1> Stopwatch</h1>
     <p>Time : {formatTime(time)}</p>
     
     {intervalTracker === null ? ( < button onClick = {startTimer}>Start</button>):(
